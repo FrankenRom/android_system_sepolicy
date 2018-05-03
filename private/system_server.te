@@ -610,8 +610,8 @@ allow system_server keystore:keystore_key {
 allow system_server block_device:dir search;
 allow system_server frp_block_device:blk_file rw_file_perms;
 
-# Clean up old cgroups
-allow system_server cgroup:dir { remove_name rmdir };
+# Allow system server to create new and clean up old cgroups
+allow system_server cgroup:dir { add_name create remove_name rmdir };
 
 # /oem access
 r_dir_file(system_server, oemfs)
